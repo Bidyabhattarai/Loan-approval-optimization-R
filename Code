@@ -1,0 +1,524 @@
+
+##### get the working directory#####
+
+getwd()
+
+###setting the working directory #####
+
+setwd("/Users/bidyabhattarai/Desktop/DSCI 726/Project/Operational Analytics")
+dir()
+
+# read the datset ####
+loan_data <- read.csv("loan_approval_dataset.csv")
+loan_data_2 <- head(loan_data,25)
+
+#### data exploration #####
+summary(loan_data)
+str(loan_data)
+typeof(loan_data)
+head(loan_data)
+
+#### checking missing values #####
+is.na(loan_data)
+sum(is.na(loan_data))
+
+##### descriptive statistics ######
+##### a.Measures of location and central tendency #####
+
+summary(loan_data$loan_amount)
+
+summary(loan_data$cibil_score)
+
+summary(loan_data$income_annum)
+
+summary(loan_data$education)
+
+summary(loan_data$loan_status)
+
+
+###### Central tendency of predictor variablle ######
+######Central tendency of loan amount ######
+mean_loan_amount <- mean(loan_data$loan_amount)
+median_loan_amount <- median(loan_data$loan_amount)
+sd_loan_amount <- sd(loan_data$loan_amount)
+
+print(mean_loan_amount)
+print(median_loan_amount)
+print(sd_loan_amount)
+
+######Central tendency of Annual Income ######
+mean_income <- mean(loan_data$income_annum)
+median_income <- median(loan_data$income_annum)
+sd_income <- sd(loan_data$income_annum)
+
+print(mean_income)
+print(median_income)
+print(sd_income)
+
+######Central tendency of cibil score/credit score ######
+mean_cs <- mean(loan_data$cibil_score)
+median_cs <- median(loan_data$cibil_score)
+sd_cs <- sd(loan_data$cibil_score)
+
+print(mean_cs)
+print(median_cs)
+print(sd_cs)
+print(mode_cs)
+
+####### Measures of dispersion #########
+###### Dispersion of loan amount ##########
+min_loan_amount <- min(loan_data$loan_amount)
+max_loan_amount <- max(loan_data$loan_amount)
+IQR_loan_amount <- IQR(loan_data$loan_amount)
+
+print(min_loan_amount)
+print(max_loan_amount)
+print(IQR_loan_amount)
+
+###### Dispersion of Income ##########
+min_income <- min(loan_data$income_annum)
+max_income <- max(loan_data$income_annum)
+IQR_income <- IQR(loan_data$income_annum)
+
+print(min_income)
+print(max_income)
+print(IQR_income)
+
+###### Dispersion of cibil score ##########
+
+min_cs <- min(loan_data$cibil_score)
+max_cs <- max(loan_data$cibil_score)
+IQR_cs <- IQR(loan_data$cibil_score)
+
+print(min_cs)
+print(max_cs)
+print(IQR_cs)
+
+####Data distribution chart ########
+###### create histogram plot of loan Amount ########
+
+library(ggplot2)
+
+hist(loan_data$loan_amount, xlab = "loan_amount", col = blues9,  main = "loan Amount Distribution" )
+
+hist(loan_data$income_annum, xlab = "income_annum", col = blues9,  main = "Income Distribution" )
+
+hist(loan_data$cibil_score, xlab = "cibil_score", col = blues9,  main = "Credit Score Distribution" )
+
+
+###### Cumulative Frequency ########
+
+ggplot(loan_data, aes(x = loan_amount)) + 
+  stat_ecdf(geom = "step", color = "blue") +
+  labs(title = "Cumulative Frequency of Loan Amount", x = "Loan Amount", y = "ECDF")
+
+
+ggplot(loan_data, aes(x = income_annum)) + 
+  stat_ecdf(geom = "step", color = "blue") +
+  labs(title = "Cumulative Frequency of Income", x = "Income", y = "ECDF")
+
+ggplot(loan_data, aes(x = cibil_score)) + 
+  stat_ecdf(geom = "step", color = "blue") +
+  labs(title = "Cumulative Frequency of Credit Score", x = "Credit Score", y = "ECDF")
+
+####### Box Plot ########
+  
+ggplot(loan_data, aes(y = income_annum)) + 
+  geom_boxplot(fill = 'orange') +
+  labs(title = "Boxplot of Income", y = "Income")
+
+
+
+##############Descriptive analysis #################################################################################
+
+
+##### get the working directory#####
+
+getwd()
+
+###setting the working directory #####
+
+setwd("/Users/bidyabhattarai/Desktop/DSCI 726/Project")
+dir()
+
+# read the datset ####
+loan_data <- read.csv("loan_approval_dataset.csv")
+loan_data_2 <- head(loan_data,25)
+
+#### data exploration #####
+summary(loan_data)
+str(loan_data)
+typeof(loan_data)
+head(loan_data)
+
+#### checking missing values #####
+is.na(loan_data)
+sum(is.na(loan_data))
+
+##### descriptive statistics ######
+##### a.Measures of location and central tendency #####
+
+summary(loan_data$loan_amount)
+
+summary(loan_data$cibil_score)
+
+summary(loan_data$income_annum)
+
+summary(loan_data$education)
+
+summary(loan_data$loan_status)
+
+
+###### Central tendency of predictor variablle ######
+######Central tendency of loan amount ######
+mean_loan_amount <- mean(loan_data$loan_amount)
+median_loan_amount <- median(loan_data$loan_amount)
+sd_loan_amount <- sd(loan_data$loan_amount)
+
+print(mean_loan_amount)
+print(median_loan_amount)
+print(sd_loan_amount)
+
+######Central tendency of Annual Income ######
+mean_income <- mean(loan_data$income_annum)
+median_income <- median(loan_data$income_annum)
+sd_income <- sd(loan_data$income_annum)
+
+print(mean_income)
+print(median_income)
+print(sd_income)
+
+######Central tendency of cibil score/credit score ######
+mean_cs <- mean(loan_data$cibil_score)
+median_cs <- median(loan_data$cibil_score)
+sd_cs <- sd(loan_data$cibil_score)
+
+print(mean_cs)
+print(median_cs)
+print(sd_cs)
+print(mode_cs)
+
+####### Measures of dispersion #########
+###### Dispersion of loan amount ##########
+min_loan_amount <- min(loan_data$loan_amount)
+max_loan_amount <- max(loan_data$loan_amount)
+IQR_loan_amount <- IQR(loan_data$loan_amount)
+
+print(min_loan_amount)
+print(max_loan_amount)
+print(IQR_loan_amount)
+
+###### Dispersion of Income ##########
+min_income <- min(loan_data$income_annum)
+max_income <- max(loan_data$income_annum)
+IQR_income <- IQR(loan_data$income_annum)
+
+print(min_income)
+print(max_income)
+print(IQR_income)
+
+###### Dispersion of cibil score ##########
+
+min_cs <- min(loan_data$cibil_score)
+max_cs <- max(loan_data$cibil_score)
+IQR_cs <- IQR(loan_data$cibil_score)
+
+print(min_cs)
+print(max_cs)
+print(IQR_cs)
+
+####Data distribution chart ########
+###### create histogram plot of loan Amount ########
+
+library(ggplot2)
+
+hist(loan_data$loan_amount, xlab = "loan_amount", col = blues9,  main = "loan Amount Distribution" )
+
+hist(loan_data$income_annum, xlab = "income_annum", col = blues9,  main = "Income Distribution" )
+
+hist(loan_data$cibil_score, xlab = "cibil_score", col = blues9,  main = "Credit Score Distribution" )
+
+
+###### Cumulative Frequency ########
+
+ggplot(loan_data, aes(x = loan_amount)) + 
+  stat_ecdf(geom = "step", color = "blue") +
+  labs(title = "Cumulative Frequency of Loan Amount", x = "Loan Amount", y = "ECDF")
+
+
+ggplot(loan_data, aes(x = income_annum)) + 
+  stat_ecdf(geom = "step", color = "blue") +
+  labs(title = "Cumulative Frequency of Income", x = "Income", y = "ECDF")
+
+ggplot(loan_data, aes(x = cibil_score)) + 
+  stat_ecdf(geom = "step", color = "blue") +
+  labs(title = "Cumulative Frequency of Credit Score", x = "Credit Score", y = "ECDF")
+
+####### Box Plot ########
+  
+ggplot(loan_data, aes(y = income_annum)) + 
+  geom_boxplot(fill = 'orange') +
+  labs(title = "Boxplot of Income", y = "Income")
+
+
+########################################################################################################################################
+#####Predictive Analysis ###############
+
+library(reshape2)
+if (!require(caTools)) install.packages("caTools")
+library(caTools)
+if (!require(rpart.plot)) install.packages("rpart.plot")
+install.packages("rpart.plot", dependencies = TRUE)
+library(rpart.plot)
+if (!require(caret)) install.packages("caret")
+library(caret)
+if (!require(ggplot2)) install.packages("ggplot2")
+if (!require(broom)) install.packages("broom")
+if (!require(randomForest)) install.packages("randomForest")
+if (!require(pROC)) install.packages("pROC")
+
+# Load libraries
+library(caret)
+library(randomForest)
+library(rpart)
+library(pROC)
+library(ggplot2)
+library(broom)
+
+install.packages("dplyr") 
+library(dplyr)
+
+setwd("/Users/bidyabhattarai/Desktop/DSCI 726/Project")
+
+
+
+loan_data <- read.csv("loan_approval_dataset.csv")
+loan_data_new <- loan_data %>%
+  select(loan_amount, income_annum, cibil_score,
+         loan_status, loan_term, bank_asset_value)
+new_loan <- loan_data_new %>% 
+  mutate(loan_status = factor(loan_status, levels = c(" Approved", " Rejected"),ordered = TRUE, labels = c(1,0)))
+head(new_loan)
+
+########################################################
+#   Logistic Regression
+
+# Logistic Regression with Cross Validation
+# Create a train control object for cross-validation
+train_control <- trainControl(method = "cv", number = 10)  # 10-fold cross-validation
+
+# Fit a logistic regression model using cross-validation
+logistic_model <- train(loan_status ~ ., data = new_loan, method = "glm", family = "binomial", trControl = train_control)
+
+# Display the model summary
+print(logistic_model)
+
+# Predictions on the same data (to calculate ROC)
+#predicted_probs_logistic <- predict(logistic_model, new_loan, type = "prob")[,2]  # Get probabilities for the positive class
+predicted_classes <- predict(logistic_model, new_loan)
+
+
+# Create confusion matrix
+conf_matrix <- confusionMatrix(as.factor(predicted_classes), new_loan$loan_status)
+
+# Extract accuracy, precision, recall, and F1 score
+accuracy <- conf_matrix$overall['Accuracy']
+precision <- conf_matrix$byClass['Precision']
+recall <- conf_matrix$byClass['Recall']
+f1 <- conf_matrix$byClass['F1']
+
+# Print the results
+cat("Logistic regression results:\n")
+cat("Accuracy:", accuracy, "\n")
+cat("Precision:", precision, "\n")
+cat("Recall:", recall, "\n")
+cat("F1 Score:", f1, "\n")
+
+# Visualization of the Confusion Matrix for Logistic Regression
+conf_matrix_table <- as.data.frame(conf_matrix$table)
+colnames(conf_matrix_table) <- c("Actual", "Predicted", "Count")
+
+# Plotting the confusion matrix for Logistic Regression (rotated)
+ggplot(data = conf_matrix_table, aes(x = Predicted, y = Actual, fill = Count)) +  # Swap x and y
+  geom_tile() +
+  geom_text(aes(label = Count), color = "black") +
+  scale_fill_gradient(low = "white", high = "blue") +
+  labs(title = "Confusion Matrix Heatmap - Logistic Regression", x = "Predicted", y = "Actual") +  # Adjust labels
+  theme_minimal() +
+  coord_fixed()  # Keeps aspect ratio fixed
+
+# ROC curve
+roc_curve_logistic <- roc(new_loan$loan_status, predicted_classes)
+plot(roc_curve_logistic, col = "blue", main = "ROC Curve - Logistic Regression")
+abline(a = 0, b = 1, lty = 2, col = "red")
+
+coefficients <- coef(logistic_model$finalModel)
+print(coefficients)
+
+#######################################################
+# Decision Tree
+
+train_control <- trainControl(method = "cv", number = 10)  # 10-fold cross-validation
+
+# Fit a decision tree model using cross-validation
+tree_model <- train(loan_status ~ ., data = new_loan, method = "rpart", trControl = train_control)
+
+# Display the model summary
+print(tree_model)
+
+# Predictions
+predicted_classes_tree <- predict(tree_model, new_loan)
+
+# Create confusion matrix
+conf_matrix_tree <- confusionMatrix(predicted_classes_tree, new_loan$loan_status)
+print(conf_matrix_tree)
+
+# Extract accuracy, precision, recall, and F1 score
+accuracy <- conf_matrix_tree$overall['Accuracy']
+precision <- conf_matrix_tree$byClass['Precision']
+recall <- conf_matrix_tree$byClass['Recall']
+f1 <- conf_matrix_tree$byClass['F1']
+
+cat("Decision tree results.")
+cat("Accuracy:", accuracy, "\n")
+cat("Precision:", precision, "\n")
+cat("Recall:", recall, "\n")
+cat("F1 Score:", f1, "\n")
+
+# Visualization of the Confusion Matrix for Decision Tree
+conf_matrix_table_tree <- as.data.frame(conf_matrix_tree$table)
+colnames(conf_matrix_table_tree) <- c("Actual", "Predicted", "Count")
+
+# Plotting the confusion matrix for Decision Tree
+ggplot(data = conf_matrix_table_tree, aes(x = Actual, y = Predicted, fill = Count)) +
+  geom_tile() +
+  geom_text(aes(label = Count), color = "black") +
+  scale_fill_gradient(low = "white", high = "blue") +
+  labs(title = "Confusion Matrix Heatmap - Decision Tree", x = "Actual", y = "Predicted") +
+  theme_minimal()
+
+
+# Plot the tree
+rpart.plot(tree_model$finalModel)
+
+########################################################
+#   Random Forest
+if (!require(randomForest)) install.packages("randomForest")
+library(randomForest)
+
+# Fit a random forest model using cross-validation
+train_control <- trainControl(method = "cv", number = 10)  # 10-fold cross-validation
+
+random_forest_model <- train(loan_status ~ ., data = new_loan, method = "rf", trControl = train_control, importance = TRUE)
+
+# Display the model summary
+print(random_forest_model)
+
+# Predictions
+predicted_classes_rf <- predict(random_forest_model, new_loan)
+
+# Create confusion matrix
+conf_matrix_rf <- confusionMatrix(predicted_classes_rf, new_loan$loan_status)
+print(conf_matrix_rf)
+
+# Extract accuracy, precision, recall, and F1 score
+accuracy <- conf_matrix_rf$overall['Accuracy']
+precision <- conf_matrix_rf$byClass['Precision']
+recall <- conf_matrix_rf$byClass['Recall']
+f1 <- conf_matrix_rf$byClass['F1']
+
+cat("Random Forest Results")
+cat("Accuracy:", accuracy, "\n")
+cat("Precision:", precision, "\n")
+cat("Recall:", recall, "\n")
+cat("F1 Score:", f1, "\n") 
+
+# Visualization of the Confusion Matrix
+conf_matrix_table <- as.data.frame(conf_matrix_rf$table)
+colnames(conf_matrix_table) <- c("Actual", "Predicted", "Count")
+
+# Plotting the confusion matrix
+ggplot(data = conf_matrix_table, aes(x = Actual, y = Predicted, fill = Count)) +
+  geom_tile() +
+  geom_text(aes(label = Count), color = "black") +
+  scale_fill_gradient(low = "white", high = "blue") +
+  labs(title = "Confusion Matrix Heatmap - Random Forest ", x = "Actual", y = "Predicted") +
+  theme_minimal()
+
+coefficients <- coef(logistic_model$finalModel)
+print(coefficients)
+
+
+
+########################################################################################################################################
+#####Prescriptive Analysis ###############
+
+
+
+
+# Load necessary libraries
+library(dplyr)
+
+
+##### get the working directory#####
+
+getwd()
+
+###setting the working directory #####
+
+setwd("/Users/bidyabhattarai/Desktop/DSCI 726/Project")
+dir()
+
+# Load the dataset
+loan_data <- read.csv("loan_approval_dataset.csv")
+
+# Define the optimization criteria
+# Filter for loans with a minimum credit score and sort by loan amount to maximize approvals under budget
+min_credit_score <- 550
+total_budget <- 500000
+
+# Filter loans with credit score >= min_credit_score
+eligible_loans <- loan_data %>% 
+  filter(cibil_score >= min_credit_score) %>% 
+  arrange(loan_amount)
+
+# Initialize variables
+approved_loans <- data.frame()
+current_budget <- 0
+
+# Greedily select loans until the budget is exhausted
+for (i in 1:nrow(eligible_loans)) {
+  if (current_budget + eligible_loans$loan_amount[i] <= total_budget) {
+    approved_loans <- rbind(approved_loans, eligible_loans[i, ])
+    current_budget <- current_budget + eligible_loans$loan_amount[i]
+  } else {
+    break
+  }
+}
+# Add decision column
+approved_loans <- approved_loans %>% mutate(Approval_Decision = 1)
+remaining_loans <- anti_join(loan_data, approved_loans, by = colnames(loan_data)) %>% 
+  mutate(Approval_Decision = 0)
+
+# Combine approved and non-approved loans for final dataset
+final_loans <- bind_rows(approved_loans, remaining_loans)
+
+# Output the approved loans
+print(approved_loans)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
